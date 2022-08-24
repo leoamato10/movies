@@ -1,9 +1,10 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 import styled from 'styled-components/native'
 
 const StyledView = styled.View`
   background-color: papayawhip;
+  background-color: ${props => props.theme.colors.primary};
+  
 `
 
 const StyledText = styled.Text`
@@ -11,11 +12,11 @@ const StyledText = styled.Text`
 `
 
 const HomeScreen = () => {
-    return (
-        <StyledView>
-            <StyledText>Hello World!</StyledText>
-        </StyledView>
-    )
+  return (
+    <StyledView>
+      <StyledText>Hello World!</StyledText>
+    </StyledView>
+  )
 }
 
 export default HomeScreen
