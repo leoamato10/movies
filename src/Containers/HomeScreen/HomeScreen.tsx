@@ -1,21 +1,15 @@
+import { View, Text } from 'react-native'
 import React from 'react'
-import styled from 'styled-components/native'
-
-const StyledView = styled.View`
-  background-color: papayawhip;
-  background-color: ${props => props.theme.colors.primary};
-  
-`
-
-const StyledText = styled.Text`
-  color: palevioletred;
-`
+import { useSelector } from 'react-redux'
 
 const HomeScreen = () => {
+  const data = useSelector(state => state)
+
+  console.log('data', data);
   return (
-    <StyledView>
-      <StyledText>Hello World!</StyledText>
-    </StyledView>
+    <View>
+      <Text>HomeScreen</Text>
+    </View>
   )
 }
 

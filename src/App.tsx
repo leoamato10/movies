@@ -1,8 +1,9 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import theme from "./Theme/theme"
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { GlobalProvider } from './Context/Store';
+import { Provider } from 'react-redux';
+import { store } from './Store/index';
+
 
 
 import RootNavigator from './Navigators/RootNavigator';
@@ -10,13 +11,11 @@ import RootNavigator from './Navigators/RootNavigator';
 const App = () => {
 
     return (
-
         <ThemeProvider theme={theme}>
-            <GlobalProvider>
+            <Provider store={store}>
                 <RootNavigator />
-            </GlobalProvider>
+            </Provider>
         </ThemeProvider>
-
     )
 }
 
