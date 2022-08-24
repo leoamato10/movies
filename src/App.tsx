@@ -1,13 +1,15 @@
-import { View, Text } from 'react-native'
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native';
+import { GlobalProvider } from './Context/Store';
+
 import RootNavigator from './Navigators/RootNavigator';
 
 const App = () => {
     return (
-        <NavigationContainer>
+
+        <GlobalProvider>
             <RootNavigator />
-        </NavigationContainer>
+        </GlobalProvider>
+
     )
 }
 
