@@ -21,18 +21,16 @@ const axiosGetMovies = async () => {
 };
 
 export function* handleGetMovies(action) {
-  console.log('action', action);
   try {
-    const response = yield call(axiosGetMovies, action);
+    const payload = yield call(axiosGetMovies, action);
 
-    console.log('response', response);
-
-    // yield put({type: ActionType.AUTH_LOGIN_SUCCESS, payload});
+    yield put({type: ActionType.GET_MOVIES_SUCCESS, payload});
   } catch (e) {
-    // yield put({
-    //   type: ActionType.AUTH_LOGIN_FAILURE,
-    //   payload: errorMsg || 'Usuario o contraseña incorrectos',
-    // });
+    console.log('e', e);
+    yield put({
+      type: ActionType.GET_MOVIES_FAILURE,
+      payload: 'Movies cant be loaded.',
+    });
   }
 }
 
