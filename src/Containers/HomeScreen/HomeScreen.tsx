@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../Types/Redux';
 import { ScrollView } from 'react-native'
 import { getMovies } from '../../Store/Actions/moviesActions'
 import { Slider } from '../../Components/Slider'
-import { Button } from '../../Components/styled/Button'
 import { Title } from '../../Components/styled/Title'
 import { useTheme } from 'styled-components'
 import Lottie from 'lottie-react-native';
@@ -16,12 +15,21 @@ padding-left:15px
 `;
 
 
+export const Button = styled.TouchableOpacity`
+background-color: gold
+  height:50px
+  border-radius: 10px
+  align-items: center
+  justify-content: center
+  margin-right: 15px
+`;
+
 
 const HomeScreen = ({ navigation }) => {
-  const dispatch = useDispatch()
   const theme = useTheme()
 
-  const { isLoading, movies } = useSelector(state => state)
+  const dispatch = useAppDispatch()
+  const { isLoading, movies } = useAppSelector(state => state)
 
 
   useEffect(() => {

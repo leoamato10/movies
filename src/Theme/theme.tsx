@@ -11,8 +11,7 @@ const defaultTheme = {
     },
     colors: {
         primary: "black",
-        secondary: "#FFFFFF",
-        tertiary: "#3a4a55"
+        secondary: "gold",
     },
     fonts: {
         fontFamily: "leo",

@@ -1,30 +1,36 @@
 
 import React, { useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Image, Text, View, StyleSheet, Dimensions, ActivityIndicator, ScrollView, TouchableOpacity } from 'react-native';
+import { Image, View, StyleSheet, Dimensions, ActivityIndicator, ScrollView } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../Types/Redux';
 import { MovieDetails } from '../../Components/MovieDetails';
 import { getMovieDetail, addToWishlist, removeFromWishlist } from '../../Store/Actions/moviesActions';
 
 import styled from 'styled-components/native';
+import { Title } from '../../Components/styled/Title';
 
 export const Button = styled.TouchableOpacity`
-background-color: palevioletred
+background-color: gold
   width: 100%
   height:50px
   border-radius: 10px
   align-items: center
+  justify-content: center
+  ${({ isInWishlist }) => isInWishlist && `background-color: black`}
 `;
+
+const Text = styled.Text`
+`
 
 
 const screenHeight = Dimensions.get('screen').height;
 
 const DetailScreen = ({ route }) => {
 
-    const dispatch = useDispatch()
-    const { isLoading, movieDetails, wishlist } = useSelector(state => state)
+    const dispatch = useAppDispatch()
+    const { isLoading, movieDetails, wishlist } = useAppSelector(state => state)
 
     const movie = route.params;
     const isInWishlist = wishlist?.some(e => e.id === movie.id)
@@ -59,21 +65,23 @@ const DetailScreen = ({ route }) => {
                         </View>
                     </View>
                     <View style={styles.imageContainer1}>
+                        <View>
 
-                        <View style={{ paddingBottom: 15 }}>
-                            <Text style={styles.title}>{movie.title}</Text>
+                            <View style={{ paddingBottom: 15 }}>
+                                <Text style={styles.title}>{movie.title}</Text>
+                            </View>
+
+                            <View style={{ flexDirection: 'row', flexWrap: "wrap" }}>
+                                <Icon name="star" color="gold" size={16} />
+                                <Text> {movieData?.vote_average}</Text>
+                            </View>
+                            <Text >
+                                {movieData?.genres.map(g => g.name).join(', ')}
+                            </Text>
                         </View>
 
-                        <View style={{ flexDirection: 'row', flexWrap: "wrap" }}>
-                            <Icon name="star" color="gold" size={16} />
-                            <Text> {movieData?.vote_average}</Text>
-                        </View>
-                        <Text >
-                            {movieData?.genres.map(g => g.name).join(', ')}
-                        </Text>
-
-                        <Button onPress={() => switchWishlistState(movie)}>
-                            <Text> {isInWishlist ? "Remove from wishlist" : "Add to wishlist"}</Text>
+                        <Button isInWishlist={isInWishlist} onPress={() => switchWishlistState(movie)}>
+                            <Title size={"16px"}> {isInWishlist ? "Remove from wishlist" : "Add to wishlist"}</Title>
                         </Button>
                     </View>
 
@@ -88,7 +96,7 @@ const DetailScreen = ({ route }) => {
                 }
 
             </ScrollView>
-        </SafeAreaView>
+        </SafeAreaView >
     )
 }
 
@@ -115,7 +123,7 @@ const styles = StyleSheet.create({
         margin: 10,
         width: '45%',
         height: screenHeight * 0.3,
-        // backgroundColor: "red"
+        justifyContent: "space-between"
 
     },
     imageBorder: {
