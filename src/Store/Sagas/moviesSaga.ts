@@ -1,28 +1,28 @@
 import * as ActionType from '../Actions/actionTypes';
 import {call, put, takeEvery} from 'redux-saga/effects';
-import moviesDB from '../../Services/api';
+import moviesApi from '../../Services/api';
 
 const axiosGetMovies = async () => {
-  const popularPromise = moviesDB.get('/popular');
-  const topRatedPromise = moviesDB.get('/top_rated');
-  const upcomingPromise = moviesDB.get('/upcoming');
+  const topRatedPromise = moviesApi.get('/top_rated');
+  const popularPromise = moviesApi.get('/popular');
+  const upcomingPromise = moviesApi.get('/upcoming');
 
   const resps = await Promise.all([
-    popularPromise,
     topRatedPromise,
+    popularPromise,
     upcomingPromise,
   ]);
 
   return {
-    popular: resps[0].data.results,
-    topRated: resps[1].data.results,
+    topRated: resps[0].data.results,
+    popular: resps[1].data.results,
     upcoming: resps[2].data.results,
   };
 };
 
 export function* handleGetMovies(action) {
   try {
-    const payload = yield call(axiosGetMovies, action);
+    const payload = yield call(axiosGetMovies);
 
     yield put({type: ActionType.GET_MOVIES_SUCCESS, payload});
   } catch (e) {

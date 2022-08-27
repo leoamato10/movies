@@ -5,20 +5,31 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../Containers/HomeScreen/HomeScreen';
 import DetailScreen from '../Containers/DetailScreen/DetailScreen';
 import WhishListScreen from '../Containers/WhishListScreen/WhishListScreen';
+import defaultTheme from '../Theme/theme';
+
 
 const Stack = createNativeStackNavigator()
+const headerOptions = {
+    headerStyle: {
+        backgroundColor: defaultTheme.colors.primary,
+    },
+    headerBackTitleVisible: false,
+    headerTintColor: '#fff',
+    headerTitleAlign: "center",
+    headerTitleStyle: {
+        fontWeight: 'bold',
+        fontSize: 23,
+    },
+}
 
 const RootNavigator = () => {
+
     return (
         <NavigationContainer>
-            <Stack.Navigator
-                screenOptions={{
-                    headerShown: false,
-                }}
-            >
-                <Stack.Screen name="HomeScreen" component={HomeScreen} />
-                <Stack.Screen name="DetailScreen" component={DetailScreen} />
-                <Stack.Screen name="WhishListScreen" component={WhishListScreen} />
+            <Stack.Navigator screenOptions={headerOptions}>
+                <Stack.Screen name="HomeScreen" options={{ title: 'Movies' }} component={HomeScreen} />
+                <Stack.Screen name="DetailScreen" options={({ route }) => ({ title: route.params.title })} component={DetailScreen} />
+                <Stack.Screen name="WhishListScreen" options={{ title: 'Whishlist' }} component={WhishListScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     )

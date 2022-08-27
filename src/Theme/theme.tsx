@@ -1,13 +1,26 @@
 
 import { Dimensions } from 'react-native';
-const { height } = Dimensions.get('window');
+const { height, width } = Dimensions.get('window');
 
 const defaultTheme = {
-    containers: {
-        androidSafeArea: 50,
+    dimensions: {
+        screenWidth: width,
+        screenHeight: height,
+        defaultMargin: "10px",
+        defaultPadding: "10px",
     },
     colors: {
-        primary: "black"
+        primary: "black",
+        secondary: "#FFFFFF",
+        tertiary: "#3a4a55"
+    },
+    fonts: {
+        fontFamily: "leo",
+        fontSizes: {
+            small: "14px",
+            medium: "18px",
+            large: "22px"
+        }
     }
 }
 

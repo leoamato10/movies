@@ -1,22 +1,62 @@
 import React, { useEffect } from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux'
-import { View, Text } from 'react-native'
-import { getMovies } from '../../Store/Actions/authActions'
+import { ScrollView } from 'react-native'
+import { getMovies } from '../../Store/Actions/moviesActions'
+import { Slider } from '../../Components/Slider'
+import { Button } from '../../Components/styled/Button'
+import { Title } from '../../Components/styled/Title'
+import { useTheme } from 'styled-components'
+import Lottie from 'lottie-react-native';
+import styled from 'styled-components/native';
 
-const HomeScreen = () => {
+const Container = styled.View`
+padding-top: 15px
+padding-left:15px
+`;
+
+
+
+const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch()
-  const data = useSelector(state => state)
+  const theme = useTheme()
+
+  const { isLoading, movies } = useSelector(state => state)
+
 
   useEffect(() => {
     dispatch(getMovies())
   }, [])
 
-  console.log('data', data);
+
+  if (isLoading) {
+    return (
+      <Container centered>
+        <Lottie source={require('../../Assets/Animations/loading.json')} autoPlay loop style={{ width: 100 }} />
+      </Container>
+    )
+  }
+
 
   return (
-    <View>
-      <Text>HomeScreen</Text>
-    </View>
+    <SafeAreaView edges={['right', 'bottom', 'left']}>
+      <ScrollView>
+
+        {movies &&
+          <Container>
+            <Slider movies={movies["popular"]} title="Popular" />
+            <Slider movies={movies["topRated"]} title="Top Rated" />
+            <Slider movies={movies["upcoming"]} title="Upcoming" />
+          </Container>
+        }
+        <Container centered >
+          <Button onPress={() => navigation.navigate("WhishListScreen")} >
+            <Title size={"20px"} color={theme.colors.tertiary}>View wishlist</Title>
+          </Button>
+        </Container>
+
+      </ScrollView >
+    </SafeAreaView>
   )
 }
 
