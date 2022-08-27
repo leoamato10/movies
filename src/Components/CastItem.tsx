@@ -1,11 +1,9 @@
 import React from 'react'
 import { Image, Text, View, StyleSheet } from 'react-native';
-
-
+import { Title } from './styled/Title';
 
 
 export const CastItem = ({ actor }) => {
-
     const uri = `https://image.tmdb.org/t/p/w500${actor.profile_path}`;
 
     return (
@@ -21,15 +19,13 @@ export const CastItem = ({ actor }) => {
 
 
             <View style={styles.actorInfo}>
-                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+                <Title size={"18px"}>
                     {actor.name}
-                </Text>
+                </Title>
                 <Text style={{ fontSize: 16, opacity: 0.7 }}>
                     {actor.character}
                 </Text>
             </View>
-
-
         </View>
     )
 }
@@ -50,7 +46,7 @@ const styles = StyleSheet.create({
         shadowRadius: 7,
 
         elevation: 9,
-        marginLeft: 20,
+        marginLeft: 10,
         paddingRight: 15,
     },
     actorInfo: {

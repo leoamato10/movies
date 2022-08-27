@@ -1,6 +1,7 @@
 import * as ActionType from '../Actions/actionTypes';
 import {call, put, takeEvery} from 'redux-saga/effects';
 import moviesApi from '../../Services/api';
+import {MoviesDetailsCallResponse} from '../../Types/MoviesDetailsTypes';
 
 const axiosGetMovieDetail = async action => {
   const movieId = action.payload;
@@ -21,7 +22,10 @@ const axiosGetMovieDetail = async action => {
 
 export function* handleGetMovieDetail(action) {
   try {
-    const payload = yield call(axiosGetMovieDetail, action);
+    const payload: MoviesDetailsCallResponse = yield call(
+      axiosGetMovieDetail,
+      action,
+    );
 
     yield put({type: ActionType.GET_MOVIE_DETAIL_SUCCESS, payload});
   } catch (e) {

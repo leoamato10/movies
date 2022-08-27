@@ -7,22 +7,11 @@ import { Slider } from '../../Components/Slider'
 import { Title } from '../../Components/styled/Title'
 import { useTheme } from 'styled-components'
 import Lottie from 'lottie-react-native';
-import styled from 'styled-components/native';
-
-const Container = styled.View`
-padding-top: 15px
-padding-left:15px
-`;
+import { Button } from '../../Components/styled/Button';
+import { Container } from '../../Components/styled/Container';
+import defaultTheme from '../../Theme/theme';
 
 
-export const Button = styled.TouchableOpacity`
-background-color: gold
-  height:50px
-  border-radius: 10px
-  align-items: center
-  justify-content: center
-  margin-right: 15px
-`;
 
 
 const HomeScreen = ({ navigation }) => {
@@ -39,19 +28,17 @@ const HomeScreen = ({ navigation }) => {
 
   if (isLoading) {
     return (
-      <Container centered>
+      <Container centered >
         <Lottie source={require('../../Assets/Animations/loading.json')} autoPlay loop style={{ width: 100 }} />
       </Container>
     )
   }
 
-
   return (
     <SafeAreaView edges={['right', 'bottom', 'left']}>
       <ScrollView>
-
         {movies &&
-          <Container>
+          <Container style={{ paddingLeft: 15, paddingTop: 15 }}>
             <Slider movies={movies["popular"]} title="Popular" />
             <Slider movies={movies["topRated"]} title="Top Rated" />
             <Slider movies={movies["upcoming"]} title="Upcoming" />
@@ -59,10 +46,9 @@ const HomeScreen = ({ navigation }) => {
         }
         <Container centered >
           <Button onPress={() => navigation.navigate("WhishListScreen")} >
-            <Title size={"20px"} color={theme.colors.tertiary}>View wishlist</Title>
+            <Title size={"20px"} >View wishlist</Title>
           </Button>
         </Container>
-
       </ScrollView >
     </SafeAreaView>
   )

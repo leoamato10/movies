@@ -28,15 +28,14 @@ const Text = styled.Text`
 const screenHeight = Dimensions.get('screen').height;
 
 const DetailScreen = ({ route }) => {
-
     const dispatch = useAppDispatch()
     const { isLoading, movieDetails, wishlist } = useAppSelector(state => state)
 
     const movie = route.params;
     const isInWishlist = wishlist?.some(e => e.id === movie.id)
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
     const { cast, movieData } = movieDetails || {}
+
 
     useEffect(() => {
         dispatch(getMovieDetail(movie.id));
@@ -51,10 +50,10 @@ const DetailScreen = ({ route }) => {
         }
     }
 
+
     return (
         <SafeAreaView edges={['right', 'bottom', 'left']}>
             <ScrollView>
-
                 <View style={{ flexDirection: "row", padding: 15 }}>
                     <View style={styles.imageContainer}>
                         <View style={styles.imageBorder}>
@@ -84,10 +83,7 @@ const DetailScreen = ({ route }) => {
                             <Title size={"16px"}> {isInWishlist ? "Remove from wishlist" : "Add to wishlist"}</Title>
                         </Button>
                     </View>
-
                 </View>
-
-
 
                 {
                     isLoading && movieDetails

@@ -1,11 +1,21 @@
+import {MoviesDetailsCallResponse} from '../../Types/MoviesDetailsTypes';
+import {Movie, MoviesCallResponse} from '../../Types/MoviesTypes';
 import * as types from '../Actions/actionTypes';
 
-export const initialState = {
-  movies: {},
-  wishlist: [],
-  movieDetails: {},
+interface IState {
+  movies?: MoviesCallResponse;
+  wishlist?: Movie[];
+  movieDetails?: MoviesDetailsCallResponse;
+  isLoading: boolean;
+  error?: string;
+}
+
+export const initialState: IState = {
+  movies: undefined,
+  wishlist: undefined,
+  movieDetails: undefined,
   isLoading: false,
-  error: '',
+  error: undefined,
 };
 
 function moviesReducer(state = initialState, action) {

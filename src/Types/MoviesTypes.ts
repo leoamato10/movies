@@ -1,11 +1,17 @@
+export interface MoviesCallResponse {
+  popular: Movies['results'];
+  topRated: Movies['results'];
+  upComing: Movies['results'];
+}
+
 export interface Movies {
   dates?: Dates;
   page: number;
-  results: Result[];
+  results: Movie[];
   total_pages: number;
   total_results: number;
 }
-export interface Result {
+export interface Movie {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];

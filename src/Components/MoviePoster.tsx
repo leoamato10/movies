@@ -1,14 +1,21 @@
 import React from 'react'
 import { Image, StyleSheet, View, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParams } from '../Navigators/RootNavigator';
 
 
+type DetailScreenNavigationProp = NativeStackNavigationProp<
+    RootStackParams,
+    'DetailScreen'
+>;
 
-export const MoviePoster = ({ movie, height = 420, width = 300 }) => {
+
+export const MoviePoster = ({ movie, height, width }) => {
 
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
-    const navigation = useNavigation();
+    const navigation = useNavigation<DetailScreenNavigationProp>();
 
 
     return (

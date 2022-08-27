@@ -16,8 +16,8 @@ const defaultTheme = {
     fonts: {
         fontFamily: "leo",
         fontSizes: {
-            small: "14px",
-            medium: "18px",
+            small: "12px",
+            medium: "16px",
             large: "22px"
         }
     }

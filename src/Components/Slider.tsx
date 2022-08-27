@@ -5,6 +5,8 @@ import { Title } from './styled/Title';
 import { MoviePoster } from './MoviePoster';
 
 
+
+
 export const Slider = ({ title, movies }) => {
 
     const renderItem = ({ item }: any) => (

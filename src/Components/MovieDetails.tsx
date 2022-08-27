@@ -1,51 +1,34 @@
 import React from 'react'
-import { FlatList, Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { FlatList } from 'react-native';
 
 
 import { CastItem } from './CastItem';
+import { Container } from './styled/Container';
+import { Parragraph } from './styled/Parragraph';
+import { Title } from './styled/Title';
 
 
 export const MovieDetails = ({ movieData, cast }) => {
     return (
         <>
-            {/* Detalles */}
-            <View style={{ marginHorizontal: 20 }}>
-
-
-
-                <Text style={{ fontSize: 23, marginTop: 10, fontWeight: 'bold' }}>
+            <Container style={{ marginHorizontal: 20 }}>
+                <Title size={"24px"} style={{ marginBottom: 10 }} >
                     Overview
-                </Text>
-
-                <Text style={{ fontSize: 16 }}>
+                </Title>
+                <Parragraph style={{ marginBottom: 20 }}>
                     {movieData?.overview}
-                </Text>
+                </Parragraph>
 
-
-
-
-
-            </View>
-
-
-            <View style={{ marginTop: 10, marginBottom: 100 }}>
-                <Text style={{ fontSize: 23, marginTop: 10, fontWeight: 'bold', marginHorizontal: 20 }}>
-                    Casting
-                </Text>
-
+                <Title size={"24px"} >Casting</Title>
                 <FlatList
                     data={cast}
                     keyExtractor={(item, index) => item.id.toString() + index}
                     renderItem={({ item }) => <CastItem actor={item} />}
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
-                    style={{ marginTop: 10, height: 70 }}
+                    style={{ marginTop: 15, height: 70 }}
                 />
-
-
-            </View>
-
+            </Container>
         </>
     )
 }

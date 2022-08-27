@@ -6,9 +6,18 @@ import HomeScreen from '../Containers/HomeScreen/HomeScreen';
 import DetailScreen from '../Containers/DetailScreen/DetailScreen';
 import WhishListScreen from '../Containers/WhishListScreen/WhishListScreen';
 import defaultTheme from '../Theme/theme';
+import { Movie } from '../Types/MoviesTypes';
 
 
-const Stack = createNativeStackNavigator()
+
+export type RootStackParams = {
+    HomeScreen;
+    DetailScreen;
+    WhishListScreen;
+}
+
+
+const Stack = createNativeStackNavigator<RootStackParams>()
 const headerOptions = {
     headerStyle: {
         backgroundColor: defaultTheme.colors.primary,
