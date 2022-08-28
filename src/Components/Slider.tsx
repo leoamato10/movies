@@ -6,10 +6,9 @@ import { MoviePoster } from './MoviePoster';
 import { Movie } from '../Types/MoviesTypes';
 
 interface Props {
-    title?: string;
+    title: string;
     movies: Movie[];
     hasRemoveButton?: boolean;
-
 }
 
 
@@ -17,7 +16,11 @@ export const Slider = ({ title, movies, hasRemoveButton }: Props) => {
 
 
     const renderItem = ({ item }) => (
-        <MoviePoster movie={item} width={150} height={200} hasRemoveButton={hasRemoveButton} />
+        <MoviePoster
+            movie={item}
+            title={title}
+            hasRemoveButton={hasRemoveButton}
+        />
     )
 
     return (

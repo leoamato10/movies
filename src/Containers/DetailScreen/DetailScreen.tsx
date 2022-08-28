@@ -11,6 +11,7 @@ import { getMovieDetail, addToWishlist, removeFromWishlist } from '../../Store/A
 import styled from 'styled-components/native';
 import { Title } from '../../Components/styled/Title';
 
+
 export const Button = styled.TouchableOpacity`
 background-color: gold
   width: 100%
@@ -27,10 +28,12 @@ background-color: gold
 const screenHeight = Dimensions.get('screen').height;
 
 const DetailScreen = ({ route }) => {
+
     const dispatch = useAppDispatch()
     const { isLoading, movieDetails, wishlist } = useAppSelector(state => state)
 
-    const movie = route.params;
+    const { movie } = route.params;
+    const { title } = route.params
     const isInWishlist = wishlist?.some(e => e.id === movie.id)
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     const { cast, movieData } = movieDetails || {}
@@ -56,7 +59,9 @@ const DetailScreen = ({ route }) => {
             <ScrollView>
                 <View style={{ flexDirection: "row", padding: 15 }}>
                     <View style={styles.imageContainer}>
+
                         <View style={styles.imageBorder}>
+
                             <Image
                                 source={{ uri }}
                                 style={styles.posterImage}
@@ -77,14 +82,23 @@ const DetailScreen = ({ route }) => {
                             </View>
 
                             <View style={{ paddingBottom: 3 }}>
-                                <Text>Category: Top Rated</Text>
+                                <Text>Category: {title}</Text>
                             </View>
 
                             <Text >
                                 {movieData?.genres.map(g => g.name).join(', ')}
                             </Text>
                         </View>
-
+                        {
+                            (title === "Top Rated") &&
+                            <Image
+                                style={{
+                                    width: "100%",
+                                    height: 40,
+                                }}
+                                source={require('../../Assets/Images/top.png')}
+                            />
+                        }
                         <Button isInWishlist={isInWishlist} onPress={() => switchWishlistState(movie)}>
                             <Title size={"16px"}> {isInWishlist ? "Remove from wishlist" : "Add to wishlist"}</Title>
                         </Button>

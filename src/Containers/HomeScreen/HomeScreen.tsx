@@ -36,15 +36,26 @@ const HomeScreen = ({ navigation }) => {
       <ScrollView>
         {movies &&
           <Container style={{ paddingLeft: 15, paddingTop: 15 }}>
-            <Slider movies={movies["popular"]} title="Popular" hasRemoveButton={false} />
-            <Slider movies={movies["topRated"]} title="Top Rated" hasRemoveButton={false} />
-            <Slider movies={movies["upcoming"]} title="Upcoming" hasRemoveButton={false} />
+            <Slider
+              movies={movies["topRated"]}
+              title="Top Rated"
+              hasRemoveButton={false}
+            />
+            <Slider
+              movies={movies["popular"]}
+              title="Popular"
+              hasRemoveButton={false}
+            />
+            <Slider
+              movies={movies["upcoming"]}
+              title="Upcoming"
+              hasRemoveButton={false}
+            />
           </Container>
         }
         <Container >
-          <Button onPress={() => navigation.navigate("WhishListScreen")} style={{
-            alignSelf: "center", width: "70%"
-          }} >
+          <Button onPress={() => navigation.navigate("WhishListScreen")}
+            style={{ alignSelf: "center", width: "80%" }} >
             <Title size={"20px"} >View wishlist</Title>
           </Button>
         </Container>

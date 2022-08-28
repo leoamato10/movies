@@ -1,6 +1,6 @@
 export interface MoviesDetailsCallResponse {
   movieData: MovieDetails;
-  cast: Cast[];
+  cast?: Cast[];
 }
 
 export interface Cast {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, View, TouchableOpacity } from 'react-native'
+import { Image, StyleSheet, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../Navigators/RootNavigator';
@@ -8,7 +8,18 @@ import { Button } from './styled/Button';
 import { Title } from './styled/Title';
 import { useAppDispatch } from '../Types/Redux';
 import { removeFromWishlist } from '../Store/Actions/moviesActions';
-import { Parragraph } from './styled/Parragraph';
+import styled from 'styled-components/native';
+
+
+
+const PosterButton = styled.TouchableOpacity`
+margin-horizontal: 2px;
+padding-bottom: 20px;
+padding-horizontal: 7px;
+margin-top: 10px;
+width: 150px;
+height: 200px;
+`;
 
 
 type DetailScreenNavigationProp = NativeStackNavigationProp<
@@ -18,40 +29,31 @@ type DetailScreenNavigationProp = NativeStackNavigationProp<
 
 interface Props {
     movie: Movie;
-    height: number;
-    width: number;
+    title: string;
     hasRemoveButton?: boolean;
 }
 
-export const MoviePoster = ({ movie, height, width, hasRemoveButton }: Props) => {
+export const MoviePoster = ({ movie, hasRemoveButton, title }: Props) => {
 
     const dispatch = useAppDispatch()
+    const navigation = useNavigation<DetailScreenNavigationProp>();
 
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-    const navigation = useNavigation<DetailScreenNavigationProp>();
 
 
     return (
 
         <View>
-            <TouchableOpacity
-                onPress={() => navigation.navigate('DetailScreen', movie)}
+            <PosterButton
+                onPress={() => navigation.navigate('DetailScreen', { movie, title })}
                 activeOpacity={0.8}
-                style={{
-                    width,
-                    height,
-                    marginHorizontal: 2,
-                    paddingBottom: 20,
-                    paddingHorizontal: 7,
-                    marginTop: 10
-                }}
             >
                 <View style={styles.imageContainer}>
                     <Image source={{ uri }} style={styles.image} />
                 </View>
 
-            </TouchableOpacity>
+            </PosterButton>
+
             {hasRemoveButton &&
                 <Button onPress={() => dispatch(removeFromWishlist(movie))}>
                     <Title size={"18px"} >
