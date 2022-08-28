@@ -9,9 +9,6 @@ import { useTheme } from 'styled-components'
 import Lottie from 'lottie-react-native';
 import { Button } from '../../Components/styled/Button';
 import { Container } from '../../Components/styled/Container';
-import defaultTheme from '../../Theme/theme';
-
-
 
 
 const HomeScreen = ({ navigation }) => {
@@ -39,13 +36,15 @@ const HomeScreen = ({ navigation }) => {
       <ScrollView>
         {movies &&
           <Container style={{ paddingLeft: 15, paddingTop: 15 }}>
-            <Slider movies={movies["popular"]} title="Popular" />
-            <Slider movies={movies["topRated"]} title="Top Rated" />
-            <Slider movies={movies["upcoming"]} title="Upcoming" />
+            <Slider movies={movies["popular"]} title="Popular" hasRemoveButton={false} />
+            <Slider movies={movies["topRated"]} title="Top Rated" hasRemoveButton={false} />
+            <Slider movies={movies["upcoming"]} title="Upcoming" hasRemoveButton={false} />
           </Container>
         }
-        <Container centered >
-          <Button onPress={() => navigation.navigate("WhishListScreen")} >
+        <Container >
+          <Button onPress={() => navigation.navigate("WhishListScreen")} style={{
+            alignSelf: "center", width: "70%"
+          }} >
             <Title size={"20px"} >View wishlist</Title>
           </Button>
         </Container>

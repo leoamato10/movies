@@ -7,8 +7,12 @@ import { Container } from './styled/Container';
 import { Parragraph } from './styled/Parragraph';
 import { Title } from './styled/Title';
 
+import { MoviesDetailsCallResponse } from "../Types/MoviesDetailsTypes"
 
-export const MovieDetails = ({ movieData, cast }) => {
+
+
+export const MovieDetails = ({ movieData, cast }: MoviesDetailsCallResponse) => {
+
     return (
         <>
             <Container style={{ marginHorizontal: 20 }}>
@@ -26,7 +30,7 @@ export const MovieDetails = ({ movieData, cast }) => {
                     renderItem={({ item }) => <CastItem actor={item} />}
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
-                    style={{ marginTop: 15, height: 70 }}
+                    style={{ marginTop: 15, height: 80 }}
                 />
             </Container>
         </>

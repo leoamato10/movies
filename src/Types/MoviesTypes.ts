@@ -1,7 +1,7 @@
 export interface MoviesCallResponse {
-  popular: Movies['results'];
-  topRated: Movies['results'];
-  upComing: Movies['results'];
+  popular: Movie[];
+  topRated: Movie[];
+  upComing: Movie[];
 }
 
 export interface Movies {

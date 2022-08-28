@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Image, View, StyleSheet, Dimensions, ActivityIndicator, ScrollView } from 'react-native';
+import { Image, View, StyleSheet, Dimensions, ActivityIndicator, ScrollView, Text } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useAppDispatch, useAppSelector } from '../../Types/Redux';
@@ -21,8 +21,7 @@ background-color: gold
   ${({ isInWishlist }) => isInWishlist && `background-color: black`}
 `;
 
-const Text = styled.Text`
-`
+
 
 
 const screenHeight = Dimensions.get('screen').height;
@@ -35,6 +34,7 @@ const DetailScreen = ({ route }) => {
     const isInWishlist = wishlist?.some(e => e.id === movie.id)
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     const { cast, movieData } = movieDetails || {}
+
 
 
     useEffect(() => {
@@ -64,16 +64,22 @@ const DetailScreen = ({ route }) => {
                         </View>
                     </View>
                     <View style={styles.imageContainer1}>
-                        <View>
 
+                        <View>
                             <View style={{ paddingBottom: 15 }}>
                                 <Text style={styles.title}>{movie.title}</Text>
                             </View>
 
-                            <View style={{ flexDirection: 'row', flexWrap: "wrap" }}>
+
+                            <View style={{ flexDirection: 'row', flexWrap: "wrap", paddingBottom: 3 }}>
                                 <Icon name="star" color="gold" size={16} />
-                                <Text> {movieData?.vote_average}</Text>
+                                <Text> {movieData?.vote_count}</Text>
                             </View>
+
+                            <View style={{ paddingBottom: 3 }}>
+                                <Text>Category: Top Rated</Text>
+                            </View>
+
                             <Text >
                                 {movieData?.genres.map(g => g.name).join(', ')}
                             </Text>
