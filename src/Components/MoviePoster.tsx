@@ -3,12 +3,12 @@ import { Image, StyleSheet, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../Navigators/RootNavigator';
-import { Movie } from '../Types/MoviesTypes';
-import { Button } from './styled/Button';
-import { Title } from './styled/Title';
 import { useAppDispatch } from '../Types/Redux';
 import { removeFromWishlist } from '../Store/Actions/moviesActions';
+
 import styled from 'styled-components/native';
+import { Button, Title } from './styled/';
+import { Movie } from '../Types/MoviesTypes';
 
 
 
@@ -32,6 +32,8 @@ interface Props {
     title: string;
     hasRemoveButton?: boolean;
 }
+
+
 
 export const MoviePoster = ({ movie, hasRemoveButton, title }: Props) => {
 

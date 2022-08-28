@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAppDispatch, useAppSelector } from '../../Types/Redux';
 import { getMovies } from '../../Store/Actions/moviesActions'
-import { Slider } from '../../Components/Slider'
-import { Container } from '../../Components/styled/Container'
 import Lottie from 'lottie-react-native';
-import { Title } from '../../Components/styled/Title';
+
+import { Title, Container } from '../../Components/styled';
+import { Slider } from '../../Components/Slider'
 
 
 

@@ -1,18 +1,21 @@
 import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useAppDispatch, useAppSelector } from '../../Types/Redux';
-import { ScrollView } from 'react-native'
-import { getMovies } from '../../Store/Actions/moviesActions'
-import { Slider } from '../../Components/Slider'
-import { Title } from '../../Components/styled/Title'
-import { useTheme } from 'styled-components'
 import Lottie from 'lottie-react-native';
-import { Button } from '../../Components/styled/Button';
-import { Container } from '../../Components/styled/Container';
+import { useAppDispatch, useAppSelector } from '../../Types/Redux';
+import { getMovies } from '../../Store/Actions/moviesActions'
+
+import styled from 'styled-components/native';
+import { Container, Button, Title } from '../../Components/styled';
+import { Slider } from '../../Components'
+
+
+const ScrollContainer = styled.ScrollView`
+padding-left:15px;
+padding-top:15px;
+`
 
 
 const HomeScreen = ({ navigation }) => {
-  const theme = useTheme()
 
   const dispatch = useAppDispatch()
   const { isLoading, movies } = useAppSelector(state => state)
@@ -33,9 +36,9 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView edges={['right', 'bottom', 'left']}>
-      <ScrollView>
+      <ScrollContainer>
         {movies &&
-          <Container style={{ paddingLeft: 15, paddingTop: 15 }}>
+          <Container >
             <Slider
               movies={movies["topRated"]}
               title="Top Rated"
@@ -53,13 +56,12 @@ const HomeScreen = ({ navigation }) => {
             />
           </Container>
         }
-        <Container >
-          <Button onPress={() => navigation.navigate("WhishListScreen")}
-            style={{ alignSelf: "center", width: "80%" }} >
-            <Title size={"20px"} >View wishlist</Title>
-          </Button>
-        </Container>
-      </ScrollView >
+
+        <Button onPress={() => navigation.navigate("WhishListScreen")}>
+          <Title size={"20px"} >View wishlist</Title>
+        </Button>
+
+      </ScrollContainer >
     </SafeAreaView>
   )
 }

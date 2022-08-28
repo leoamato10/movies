@@ -1,6 +1,8 @@
 import React from 'react'
 import { Image, Text, View, StyleSheet } from 'react-native';
-import { Title } from './styled/Title';
+
+import { Title } from './styled';
+
 
 
 export const CastItem = ({ actor }) => {

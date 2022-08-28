@@ -10,19 +10,17 @@ import { getMovieDetail, addToWishlist, removeFromWishlist } from '../../Store/A
 
 import styled from 'styled-components/native';
 import { Title } from '../../Components/styled/Title';
+import { Button } from '../../Components/styled/Button';
 
 
-export const Button = styled.TouchableOpacity`
-background-color: gold
-  width: 100%
-  height:50px
-  border-radius: 10px
-  align-items: center
-  justify-content: center
-  ${({ isInWishlist }) => isInWishlist && `background-color: black`}
+
+const CustomButton = styled(Button)`
+${({ isInWishlist }) => isInWishlist && `background-color: black`}
 `;
 
-
+// const CustomTitle = styled(Title)`
+// ${({ isInWishlist }) => isInWishlist && `color: gold`}
+// `;
 
 
 const screenHeight = Dimensions.get('screen').height;
@@ -99,9 +97,11 @@ const DetailScreen = ({ route }) => {
                                 source={require('../../Assets/Images/top.png')}
                             />
                         }
-                        <Button isInWishlist={isInWishlist} onPress={() => switchWishlistState(movie)}>
-                            <Title size={"16px"}> {isInWishlist ? "Remove from wishlist" : "Add to wishlist"}</Title>
-                        </Button>
+                        <CustomButton isInWishlist={isInWishlist} onPress={() => switchWishlistState(movie)}>
+                            <Title size={"16px"} isInWishlist={isInWishlist}>
+                                {isInWishlist ? "Remove" : "Add to wishlist"}
+                            </Title>
+                        </CustomButton>
                     </View>
                 </View>
 

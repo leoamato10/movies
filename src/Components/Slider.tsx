@@ -1,9 +1,9 @@
 import React from 'react'
 import { FlatList } from 'react-native';
-
-import { Title } from './styled/Title';
-import { MoviePoster } from './MoviePoster';
 import { Movie } from '../Types/MoviesTypes';
+
+import { Title } from './styled';
+import { MoviePoster } from './MoviePoster';
 
 interface Props {
     title: string;

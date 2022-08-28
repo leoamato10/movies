@@ -1,13 +1,9 @@
 import React from 'react'
 import { FlatList } from 'react-native';
-
-
-import { CastItem } from './CastItem';
-import { Container } from './styled/Container';
-import { Parragraph } from './styled/Parragraph';
-import { Title } from './styled/Title';
-
 import { MoviesDetailsCallResponse } from "../Types/MoviesDetailsTypes"
+
+import { Container, Title, Parragraph } from './styled';
+import { CastItem } from './CastItem';
 
 
 
