@@ -1,13 +1,11 @@
 
 import { Dimensions } from 'react-native';
-const { height, width } = Dimensions.get('window');
+const { height, width } = Dimensions.get('screen');
 
 const defaultTheme = {
-    dimensions: {
+    screenDimensions: {
         screenWidth: width,
         screenHeight: height,
-        defaultMargin: "10px",
-        defaultPadding: "10px",
     },
     colors: {
         primary: "black",

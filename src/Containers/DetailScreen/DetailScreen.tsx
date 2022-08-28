@@ -1,92 +1,96 @@
 
 import React, { useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Image, View, StyleSheet, Dimensions, ActivityIndicator, ScrollView, Text } from 'react-native';
-
+import { Image, View, StyleSheet, ActivityIndicator, ScrollView, Text } from 'react-native';
+import Lottie from 'lottie-react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useAppDispatch, useAppSelector } from '../../Types/Redux';
-import { MovieDetails } from '../../Components/MovieDetails';
 import { getMovieDetail, addToWishlist, removeFromWishlist } from '../../Store/Actions/moviesActions';
 
 import styled from 'styled-components/native';
-import { Title } from '../../Components/styled/Title';
-import { Button } from '../../Components/styled/Button';
+import defaultTheme from "../../Theme/theme"
+import { Title, Button, Parragraph, Container } from '../../Components/styled';
+import { MovieDetails } from '../../Components/MovieDetails';
 
+
+
+const { screenHeight } = defaultTheme.screenDimensions
+
+const CustomContainer = styled(Container)`
+margin: 10px;
+width: 45%;
+height: ${screenHeight * 0.3 + "px"};
+justify-content: space-between;
+`;
 
 
 const CustomButton = styled(Button)`
 ${({ isInWishlist }) => isInWishlist && `background-color: black`}
 `;
 
-// const CustomTitle = styled(Title)`
-// ${({ isInWishlist }) => isInWishlist && `color: gold`}
-// `;
 
-
-const screenHeight = Dimensions.get('screen').height;
 
 const DetailScreen = ({ route }) => {
 
     const dispatch = useAppDispatch()
     const { isLoading, movieDetails, wishlist } = useAppSelector(state => state)
 
-    const { movie } = route.params;
-    const { title } = route.params
+    const { movie, title } = route.params;
+    const { id } = movie
+    const { cast, movieData } = movieDetails || {}
     const isInWishlist = wishlist?.some(e => e.id === movie.id)
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-    const { cast, movieData } = movieDetails || {}
-
 
 
     useEffect(() => {
-        dispatch(getMovieDetail(movie.id));
+        dispatch(getMovieDetail(id));
     }, []);
 
 
     const switchWishlistState = (movie) => {
-        if (isInWishlist) {
+        isInWishlist ?
             dispatch(removeFromWishlist(movie))
-        } else {
-            dispatch(addToWishlist(movie))
-        }
+            : dispatch(addToWishlist(movie))
     }
 
 
     return (
         <SafeAreaView edges={['right', 'bottom', 'left']}>
             <ScrollView>
+
                 <View style={{ flexDirection: "row", padding: 15 }}>
+
+                    {/* IMAGE AREA*/}
                     <View style={styles.imageContainer}>
-
                         <View style={styles.imageBorder}>
-
                             <Image
                                 source={{ uri }}
                                 style={styles.posterImage}
                             />
                         </View>
                     </View>
-                    <View style={styles.imageContainer1}>
 
-                        <View>
+                    {/* BUTTON AND DESCRIPTION AREA */}
+                    <CustomContainer>
+                        <Container>
                             <View style={{ paddingBottom: 15 }}>
-                                <Text style={styles.title}>{movie.title}</Text>
+                                <Title>{movie.title}</Title>
                             </View>
 
 
                             <View style={{ flexDirection: 'row', flexWrap: "wrap", paddingBottom: 3 }}>
                                 <Icon name="star" color="gold" size={16} />
-                                <Text> {movieData?.vote_count}</Text>
+                                <Parragraph size={"16px"}>  {movieData?.vote_count}</Parragraph>
                             </View>
 
                             <View style={{ paddingBottom: 3 }}>
-                                <Text>Category: {title}</Text>
+                                <Parragraph >Category: {title}</Parragraph>
                             </View>
 
-                            <Text >
+                            <Parragraph >
                                 {movieData?.genres.map(g => g.name).join(', ')}
-                            </Text>
-                        </View>
+                            </Parragraph>
+                        </Container>
                         {
                             (title === "Top Rated") &&
                             <Image
@@ -102,12 +106,15 @@ const DetailScreen = ({ route }) => {
                                 {isInWishlist ? "Remove" : "Add to wishlist"}
                             </Title>
                         </CustomButton>
-                    </View>
+                    </CustomContainer>
                 </View>
 
+                {/* ADDITIONAL INFO AREA */}
                 {
                     isLoading && movieDetails
-                        ? <ActivityIndicator size={35} color="grey" style={{ marginTop: 20 }} />
+                        ? <Container centered style={{ height: screenHeight / 2, justifyContent: "center" }} >
+                            <Lottie source={require('../../Assets/Animations/loading.json')} autoPlay loop style={{ width: 100 }} />
+                        </Container>
                         : <MovieDetails movieData={movieData!} cast={cast} />
                 }
 
@@ -134,13 +141,6 @@ const styles = StyleSheet.create({
         elevation: 9,
         borderBottomEndRadius: 25,
         borderBottomStartRadius: 25,
-    },
-    imageContainer1: {
-        margin: 10,
-        width: '45%',
-        height: screenHeight * 0.3,
-        justifyContent: "space-between"
-
     },
     imageBorder: {
         flex: 1,
