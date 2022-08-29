@@ -37,7 +37,7 @@ const HomeScreen = ({ navigation }) => {
   }
 
   return (
-    <SafeAreaView edges={['right', 'bottom', 'left']}>
+    <SafeAreaView edges={['right', 'bottom', 'left']} >
       <ScrollContainer>
         {movies &&
           <Container >

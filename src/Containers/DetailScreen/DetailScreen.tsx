@@ -52,7 +52,7 @@ const DetailScreen = ({ route }) => {
         dispatch(getMovieDetail(id));
     }, []);
 
-    console.log('cfilmCategory === "Top Rated"', filmCategory === "Top Rated");
+
     const switchWishlistState = (movie) => {
         isInWishlist ?
             dispatch(removeFromWishlist(movie))
