@@ -12,7 +12,7 @@ import { Slider } from '../../Components'
 
 const ScrollContainer = styled.ScrollView`
 padding-left:15px;
-padding-top:15px;
+margin-top:15px;
 `
 
 
@@ -38,9 +38,9 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView edges={['right', 'bottom', 'left']} >
-      <ScrollContainer>
+      <ScrollContainer showsVerticalScrollIndicator={false}>
         {movies &&
-          <Container >
+          <Container>
             <Slider
               movies={movies["topRated"]}
               filmCategory="Top Rated"
@@ -59,7 +59,9 @@ const HomeScreen = ({ navigation }) => {
           </Container>
         }
 
-        <Button onPress={() => navigation.navigate("WhishListScreen")}>
+        <Button
+          style={{ marginBottom: 15 }}
+          onPress={() => navigation.navigate("WhishListScreen")}>
           <Title size={fontSize.large} >View wishlist</Title>
         </Button>
 

@@ -64,6 +64,9 @@ const DetailScreen = ({ route }) => {
         <SafeAreaView edges={['right', 'bottom', 'left']}>
             <ScrollView>
 
+
+
+
                 <View style={{ flexDirection: "row", padding: 15 }}>
 
                     {/* IMAGE AREA*/}
@@ -92,16 +95,15 @@ const DetailScreen = ({ route }) => {
                                 />
                             }
 
-                            <View style={{ paddingBottom: 10, paddingTop: 15 }}>
-                                <Title>{movie.title}</Title>
+                            <View style={{ paddingBottom: 10, paddingTop: 5 }}>
+                                <Title numberOfLines={2}>{movie.title}</Title>
                             </View>
 
 
-                            <View style={{ flexDirection: 'row', flexWrap: "wrap", paddingBottom: 3 }}>
+                            <View style={{ flexDirection: 'row', flexWrap: "wrap" }}>
                                 <Icon name="star" color="gold" size={16} />
                                 <Parragraph size={"16px"}>  {movieData?.vote_count}</Parragraph>
                             </View>
-
 
 
                             <Parragraph >
