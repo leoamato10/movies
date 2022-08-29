@@ -4,6 +4,13 @@ import { MoviesDetailsCallResponse } from "../Types/MoviesDetailsTypes"
 
 import { Container, Title, Parragraph } from './styled';
 import { CastItem } from './CastItem';
+import styled from 'styled-components/native';
+
+
+const CustomText = styled.Text`
+font-family: 'QTTheatre';
+font-size: 30px
+`
 
 
 
@@ -12,14 +19,14 @@ export const MovieDetails = ({ movieData, cast }: MoviesDetailsCallResponse) => 
     return (
         <>
             <Container style={{ marginHorizontal: 20 }}>
-                <Title size={"24px"} style={{ marginBottom: 10 }} >
-                    Overview
-                </Title>
+                <CustomText size={"24px"} style={{ marginBottom: 10 }} >
+                    OVERVIEW
+                </CustomText>
                 <Parragraph style={{ marginBottom: 20 }}>
                     {movieData?.overview}
                 </Parragraph>
 
-                <Title size={"24px"} >Casting</Title>
+                <CustomText size={"24px"}>CASTING</CustomText>
                 <FlatList
                     data={cast}
                     keyExtractor={(item, index) => item.id.toString() + index}

@@ -5,6 +5,7 @@ import { Title } from './styled';
 
 
 
+
 export const CastItem = ({ actor }) => {
     const uri = `https://image.tmdb.org/t/p/w500${actor.profile_path}`;
 

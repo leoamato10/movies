@@ -29,6 +29,11 @@ ${({ isInWishlist }) => isInWishlist && `background-color: black`}
 `;
 
 
+const CustomText = styled.Text`
+font-family: 'QTTheatre';
+font-size: 30px
+`
+
 
 const DetailScreen = ({ route }) => {
 
