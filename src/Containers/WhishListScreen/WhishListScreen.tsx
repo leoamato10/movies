@@ -37,7 +37,7 @@ const WhishListScreen = () => {
                         <Lottie source={require('../../Assets/Animations/loading.json')} autoPlay loop style={{ width: 100 }} />
                     </Container>
                     :
-                    <Slider movies={wishlist} title="Movies saved on wishlist" hasRemoveButton={true} />}
+                    <Slider movies={wishlist} filmCategory="Movies saved on wishlist" hasRemoveButton={true} />}
             </Container>
         </SafeAreaView>
     )

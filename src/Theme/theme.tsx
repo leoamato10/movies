@@ -2,7 +2,7 @@
 import { Dimensions } from 'react-native';
 const { height, width } = Dimensions.get('screen');
 
-const defaultTheme = {
+const theme = {
     screenDimensions: {
         screenWidth: width,
         screenHeight: height,
@@ -12,8 +12,8 @@ const defaultTheme = {
         secondary: "gold",
     },
     fonts: {
-        fontFamily: "leo",
-        fontSizes: {
+        primary: 'QTTheatre',
+        fontSize: {
             small: "12px",
             medium: "16px",
             large: "22px"
@@ -21,4 +21,4 @@ const defaultTheme = {
     }
 }
 
-export default defaultTheme
+export default theme

@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Image, View, StyleSheet, ActivityIndicator, ScrollView, Text } from 'react-native';
+import { Image, View, StyleSheet, ScrollView } from 'react-native';
 import Lottie from 'lottie-react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useAppDispatch, useAppSelector } from '../../Types/Redux';
@@ -25,14 +25,15 @@ justify-content: space-between;
 
 
 const CustomButton = styled(Button)`
+${({ filmCategory }) => filmCategory === "Top Rated" && `background-color: #d13f51`}
 ${({ isInWishlist }) => isInWishlist && `background-color: black`}
 `;
 
+const CustomButtonText = styled(Title)`
+${({ filmCategory }) => filmCategory === "Top Rated" && `color: white`}
+${({ isInWishlist }) => isInWishlist && `background-color: black`}
+`;
 
-const CustomText = styled.Text`
-font-family: 'QTTheatre';
-font-size: 30px
-`
 
 
 const DetailScreen = ({ route }) => {
@@ -40,7 +41,7 @@ const DetailScreen = ({ route }) => {
     const dispatch = useAppDispatch()
     const { isLoading, movieDetails, wishlist } = useAppSelector(state => state)
 
-    const { movie, title } = route.params;
+    const { movie, filmCategory } = route.params;
     const { id } = movie
     const { cast, movieData } = movieDetails || {}
     const isInWishlist = wishlist?.some(e => e.id === movie.id)
@@ -51,7 +52,7 @@ const DetailScreen = ({ route }) => {
         dispatch(getMovieDetail(id));
     }, []);
 
-
+    console.log('cfilmCategory === "Top Rated"', filmCategory === "Top Rated");
     const switchWishlistState = (movie) => {
         isInWishlist ?
             dispatch(removeFromWishlist(movie))
@@ -78,7 +79,20 @@ const DetailScreen = ({ route }) => {
                     {/* BUTTON AND DESCRIPTION AREA */}
                     <CustomContainer>
                         <Container>
-                            <View style={{ paddingBottom: 15 }}>
+
+                            {
+                                (filmCategory === "Top Rated") &&
+                                <Image
+                                    style={{
+                                        width: "100%",
+                                        height: 40,
+
+                                    }}
+                                    source={require('../../Assets/Images/top.png')}
+                                />
+                            }
+
+                            <View style={{ paddingBottom: 10, paddingTop: 15 }}>
                                 <Title>{movie.title}</Title>
                             </View>
 
@@ -88,28 +102,23 @@ const DetailScreen = ({ route }) => {
                                 <Parragraph size={"16px"}>  {movieData?.vote_count}</Parragraph>
                             </View>
 
-                            <View style={{ paddingBottom: 3 }}>
-                                <Parragraph >Category: {title}</Parragraph>
-                            </View>
+
 
                             <Parragraph >
                                 {movieData?.genres.map(g => g.name).join(', ')}
                             </Parragraph>
                         </Container>
-                        {
-                            (title === "Top Rated") &&
-                            <Image
-                                style={{
-                                    width: "100%",
-                                    height: 40,
-                                }}
-                                source={require('../../Assets/Images/top.png')}
-                            />
-                        }
-                        <CustomButton isInWishlist={isInWishlist} onPress={() => switchWishlistState(movie)}>
-                            <Title size={"16px"} isInWishlist={isInWishlist}>
+
+                        <CustomButton
+                            isInWishlist={isInWishlist}
+                            filmCategory={filmCategory}
+                            onPress={() => switchWishlistState(movie)}>
+                            <CustomButtonText
+                                size={"16px"}
+                                filmCategory={filmCategory}
+                                isInWishlist={isInWishlist}>
                                 {isInWishlist ? "Remove" : "Add to wishlist"}
-                            </Title>
+                            </CustomButtonText>
                         </CustomButton>
                     </CustomContainer>
                 </View>
@@ -120,7 +129,7 @@ const DetailScreen = ({ route }) => {
                         ? <Container centered style={{ height: screenHeight / 2, justifyContent: "center" }} >
                             <Lottie source={require('../../Assets/Animations/loading.json')} autoPlay loop style={{ width: 100 }} />
                         </Container>
-                        : <MovieDetails movieData={movieData!} cast={cast} />
+                        : <MovieDetails movieData={movieData!} cast={cast} filmCategory={filmCategory} />
                 }
 
             </ScrollView>

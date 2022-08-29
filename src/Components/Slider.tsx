@@ -6,26 +6,26 @@ import { Title } from './styled';
 import { MoviePoster } from './MoviePoster';
 
 interface Props {
-    title: string;
+    filmCategory: string;
     movies: Movie[];
     hasRemoveButton?: boolean;
 }
 
 
-export const Slider = ({ title, movies, hasRemoveButton }: Props) => {
+export const Slider = ({ filmCategory, movies, hasRemoveButton }: Props) => {
 
 
     const renderItem = ({ item }) => (
         <MoviePoster
             movie={item}
-            title={title}
+            filmCategory={filmCategory}
             hasRemoveButton={hasRemoveButton}
         />
     )
 
     return (
         <>
-            <Title>{title}</Title>
+            <Title>{filmCategory}</Title>
             <FlatList
                 data={movies}
                 renderItem={renderItem}

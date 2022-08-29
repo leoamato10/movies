@@ -7,26 +7,30 @@ import { CastItem } from './CastItem';
 import styled from 'styled-components/native';
 
 
-const CustomText = styled.Text`
-font-family: 'QTTheatre';
-font-size: 30px
-`
+const CustomText = styled(Title)`
+${props =>
+        props.filmCategory === "Top Rated" &&
+        `
+    font-family: ${props.theme.fonts.primary}
+    font-size: 30px;
+    text-transform: uppercase;
+`};
+    `
 
 
-
-export const MovieDetails = ({ movieData, cast }: MoviesDetailsCallResponse) => {
+export const MovieDetails = ({ movieData, cast, filmCategory }: MoviesDetailsCallResponse) => {
 
     return (
         <>
             <Container style={{ marginHorizontal: 20 }}>
-                <CustomText size={"24px"} style={{ marginBottom: 10 }} >
-                    OVERVIEW
+                <CustomText filmCategory={filmCategory} size={"24px"} style={{ marginBottom: 10 }} >
+                    Overview
                 </CustomText>
                 <Parragraph style={{ marginBottom: 20 }}>
                     {movieData?.overview}
                 </Parragraph>
 
-                <CustomText size={"24px"}>CASTING</CustomText>
+                <CustomText filmCategory={filmCategory} size={"24px"}>Casting</CustomText>
                 <FlatList
                     data={cast}
                     keyExtractor={(item, index) => item.id.toString() + index}

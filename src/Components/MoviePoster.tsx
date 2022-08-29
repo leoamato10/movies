@@ -29,13 +29,13 @@ type DetailScreenNavigationProp = NativeStackNavigationProp<
 
 interface Props {
     movie: Movie;
-    title: string;
+    filmCategory: string;
     hasRemoveButton?: boolean;
 }
 
 
 
-export const MoviePoster = ({ movie, hasRemoveButton, title }: Props) => {
+export const MoviePoster = ({ movie, hasRemoveButton, filmCategory }: Props) => {
 
     const dispatch = useAppDispatch()
     const navigation = useNavigation<DetailScreenNavigationProp>();
@@ -47,7 +47,7 @@ export const MoviePoster = ({ movie, hasRemoveButton, title }: Props) => {
 
         <View>
             <PosterButton
-                onPress={() => navigation.navigate('DetailScreen', { movie, title })}
+                onPress={() => navigation.navigate('DetailScreen', { movie, filmCategory })}
                 activeOpacity={0.8}
             >
                 <View style={styles.imageContainer}>

@@ -1,6 +1,7 @@
 export interface MoviesDetailsCallResponse {
   movieData: MovieDetails;
   cast?: Cast[];
+  filmCategory?: string;
 }
 
 export interface Cast {
@@ -56,7 +57,7 @@ export interface MovieDetails {
   spoken_languages: SpokenLanguage[];
   status: string;
   tagline: string;
-  title: string;
+  filmCategory: string;
   video: boolean;
   vote_average: number;
   vote_count: number;

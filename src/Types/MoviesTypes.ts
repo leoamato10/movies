@@ -22,7 +22,7 @@ export interface Movie {
   popularity: number;
   poster_path: string;
   release_date: Date;
-  title: string;
+  filmCategory: string;
   video: boolean;
   vote_average: number;
   vote_count: number;

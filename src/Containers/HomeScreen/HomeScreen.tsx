@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Lottie from 'lottie-react-native';
+import { useTheme } from 'styled-components'
 import { useAppDispatch, useAppSelector } from '../../Types/Redux';
 import { getMovies } from '../../Store/Actions/moviesActions'
 
@@ -17,9 +18,10 @@ padding-top:15px;
 
 const HomeScreen = ({ navigation }) => {
 
+  const theme = useTheme()
   const dispatch = useAppDispatch()
   const { isLoading, movies } = useAppSelector(state => state)
-
+  const { fontSize } = theme.fonts
 
   useEffect(() => {
     dispatch(getMovies())
@@ -41,24 +43,24 @@ const HomeScreen = ({ navigation }) => {
           <Container >
             <Slider
               movies={movies["topRated"]}
-              title="Top Rated"
+              filmCategory="Top Rated"
               hasRemoveButton={false}
             />
             <Slider
               movies={movies["popular"]}
-              title="Popular"
+              filmCategory="Popular"
               hasRemoveButton={false}
             />
             <Slider
               movies={movies["upcoming"]}
-              title="Upcoming"
+              filmCategory="Upcoming"
               hasRemoveButton={false}
             />
           </Container>
         }
 
         <Button onPress={() => navigation.navigate("WhishListScreen")}>
-          <Title size={"20px"} >View wishlist</Title>
+          <Title size={fontSize.large} >View wishlist</Title>
         </Button>
 
       </ScrollContainer >
