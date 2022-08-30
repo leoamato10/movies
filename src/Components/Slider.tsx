@@ -9,6 +9,7 @@ interface Props {
     filmCategory: string;
     movies: Movie[];
     hasRemoveButton?: boolean;
+    testID?: string;
 }
 
 

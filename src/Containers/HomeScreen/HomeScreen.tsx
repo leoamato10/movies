@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Lottie from 'lottie-react-native';
-import { useTheme } from 'styled-components'
 import { useAppDispatch, useAppSelector } from '../../Types/Redux';
 import { getMovies } from '../../Store/Actions/moviesActions'
 
-import styled from 'styled-components/native';
+import styled, { useTheme } from 'styled-components/native';
 import { Container, Button, Title } from '../../Components/styled';
 import { Slider } from '../../Components'
-
 
 const ScrollContainer = styled.ScrollView`
 padding-left:15px;
@@ -20,8 +18,10 @@ const HomeScreen = ({ navigation }) => {
 
   const theme = useTheme()
   const dispatch = useAppDispatch()
+
+  const { fontSize } = theme
   const { isLoading, movies } = useAppSelector(state => state)
-  const { fontSize } = theme.fonts
+
 
   useEffect(() => {
     dispatch(getMovies())
@@ -61,8 +61,9 @@ const HomeScreen = ({ navigation }) => {
 
         <Button
           style={{ marginBottom: 15 }}
+          testID="navigation-button"
           onPress={() => navigation.navigate("WhishListScreen")}>
-          <Title size={fontSize.large} >View wishlist</Title>
+          <Title size={fontSize?.large} >View wishlist</Title>
         </Button>
 
       </ScrollContainer >

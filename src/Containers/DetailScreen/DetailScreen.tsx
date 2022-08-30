@@ -116,6 +116,7 @@ const DetailScreen = ({ route }) => {
                             filmCategory={filmCategory}
                             onPress={() => switchWishlistState(movie)}>
                             <CustomButtonText
+                                testID="Add-to-wishlist-button"
                                 size={"16px"}
                                 filmCategory={filmCategory}
                                 isInWishlist={isInWishlist}>
