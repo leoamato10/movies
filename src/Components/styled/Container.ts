@@ -1,4 +1,4 @@
-import {StyledProps} from 'styled-components';
+import { StyledProps } from 'styled-components';
 import styled from 'styled-components/native';
 
 type ViewProps = StyledProps<{

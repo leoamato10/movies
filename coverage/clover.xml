@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1662398658349" clover="3.2.0">
+  <project timestamp="1662398658349" name="All files">
+    <metrics statements="145" coveredstatements="89" conditionals="62" coveredconditionals="17" methods="52" coveredmethods="24" elements="259" coveredelements="130" complexity="0" loc="145" ncloc="145" packages="15" files="27" classes="27"/>
+    <package name="__mock__">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="ImageMock.js" path="/Users/leonardoamato/code/GitHub/movies/__mock__/ImageMock.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="App.tsx" path="/Users/leonardoamato/code/GitHub/movies/src/App.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components">
+      <metrics statements="24" coveredstatements="16" conditionals="6" coveredconditionals="1" methods="11" coveredmethods="4"/>
+      <file name="CastItem.tsx" path="/Users/leonardoamato/code/GitHub/movies/src/Components/CastItem.tsx">
+        <metrics statements="4" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+      </file>
+      <file name="MovieDetails.tsx" path="/Users/leonardoamato/code/GitHub/movies/src/Components/MovieDetails.tsx">
+        <metrics statements="6" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+      </file>
+      <file name="MoviePoster.tsx" path="/Users/leonardoamato/code/GitHub/movies/src/Components/MoviePoster.tsx">
+        <metrics statements="9" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="1"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="38" count="30" type="stmt"/>
+        <line num="39" count="30" type="stmt"/>
+        <line num="41" count="30" type="stmt"/>
+        <line num="43" count="30" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="64" count="3" type="stmt"/>
+      </file>
+      <file name="Slider.tsx" path="/Users/leonardoamato/code/GitHub/movies/src/Components/Slider.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="30" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="30" count="36" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Components/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.Components.styled">
+      <metrics statements="10" coveredstatements="8" conditionals="12" coveredconditionals="7" methods="6" coveredmethods="4"/>
+      <file name="Button.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Components/styled/Button.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="3" type="stmt"/>
+      </file>
+      <file name="Container.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Components/styled/Container.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="4" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="Parragraph.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Components/styled/Parragraph.ts">
+        <metrics statements="3" coveredstatements="1" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+      <file name="Title.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Components/styled/Title.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="3"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="8" type="cond" truecount="1" falsecount="1"/>
+      </file>
+      <file name="index.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Components/styled/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.Containers.DetailScreen">
+      <metrics statements="24" coveredstatements="6" conditionals="20" coveredconditionals="0" methods="11" coveredmethods="0"/>
+      <file name="DetailScreen.tsx" path="/Users/leonardoamato/code/GitHub/movies/src/Containers/DetailScreen/DetailScreen.tsx">
+        <metrics statements="15" coveredstatements="1" conditionals="12" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+      </file>
+      <file name="DetailScreenStyles.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Containers/DetailScreen/DetailScreenStyles.ts">
+        <metrics statements="9" coveredstatements="5" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="26" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Containers.HomeScreen">
+      <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+      <file name="HomeScreen.tsx" path="/Users/leonardoamato/code/GitHub/movies/src/Containers/HomeScreen/HomeScreen.tsx">
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="28" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Containers.WhishListScreen">
+      <metrics statements="8" coveredstatements="7" conditionals="6" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <file name="WhishListScreen.tsx" path="/Users/leonardoamato/code/GitHub/movies/src/Containers/WhishListScreen/WhishListScreen.tsx">
+        <metrics statements="8" coveredstatements="7" conditionals="6" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="2" type="cond" truecount="2" falsecount="2"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Navigators">
+      <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="RootNavigator.tsx" path="/Users/leonardoamato/code/GitHub/movies/src/Navigators/RootNavigator.tsx">
+        <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Services">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="api.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Services/api.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Store">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Store/index.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Store.Actions">
+      <metrics statements="12" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+      <file name="actionTypes.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Store/Actions/actionTypes.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+      </file>
+      <file name="moviesActions.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Store/Actions/moviesActions.ts">
+        <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Store.Reducers">
+      <metrics statements="16" coveredstatements="5" conditionals="14" coveredconditionals="3" methods="2" coveredmethods="1"/>
+      <file name="moviesReducer.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Store/Reducers/moviesReducer.ts">
+        <metrics statements="16" coveredstatements="5" conditionals="14" coveredconditionals="3" methods="2" coveredmethods="1"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="22" count="6" type="cond" truecount="3" falsecount="6"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="61" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="64" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="81" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Store.Sagas">
+      <metrics statements="24" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="5"/>
+      <file name="index.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Store/Sagas/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="3" type="stmt"/>
+      </file>
+      <file name="movieDetailSaga.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Store/Sagas/movieDetailSaga.ts">
+        <metrics statements="11" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+      </file>
+      <file name="moviesSaga.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Store/Sagas/moviesSaga.ts">
+        <metrics statements="12" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Theme">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="theme.tsx" path="/Users/leonardoamato/code/GitHub/movies/src/Theme/theme.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Types">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Redux.ts" path="/Users/leonardoamato/code/GitHub/movies/src/Types/Redux.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="35" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

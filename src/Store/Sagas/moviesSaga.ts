@@ -1,7 +1,7 @@
 import * as ActionType from '../Actions/actionTypes';
-import {call, put, takeEvery} from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import moviesApi from '../../Services/api';
-import {MoviesCallResponse} from '../../Types/MoviesTypes';
+import { MoviesCallResponse } from '../../Types/MoviesTypes';
 
 const axiosGetMovies = async () => {
   const topRatedPromise = moviesApi.get('/top_rated');
@@ -11,13 +11,13 @@ const axiosGetMovies = async () => {
   const resps = await Promise.all([
     topRatedPromise,
     popularPromise,
-    upcomingPromise,
+    upcomingPromise
   ]);
 
   return {
     topRated: resps[0].data.results,
     popular: resps[1].data.results,
-    upcoming: resps[2].data.results,
+    upComing: resps[2].data.results
   };
 };
 
@@ -25,12 +25,12 @@ export function* handleGetMovies(action) {
   try {
     const payload: MoviesCallResponse = yield call(axiosGetMovies);
 
-    yield put({type: ActionType.GET_MOVIES_SUCCESS, payload});
+    yield put({ type: ActionType.GET_MOVIES_SUCCESS, payload });
   } catch (e) {
     console.log('e', e);
     yield put({
       type: ActionType.GET_MOVIES_FAILURE,
-      payload: 'Movies cant be loaded.',
+      payload: 'Movies cant be loaded.'
     });
   }
 }

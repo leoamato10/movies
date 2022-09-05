@@ -1,3 +1,3 @@
-import {moviesReducer} from './moviesReducer';
+import { moviesReducer } from './moviesReducer';
 
-export {moviesReducer};
+export { moviesReducer };

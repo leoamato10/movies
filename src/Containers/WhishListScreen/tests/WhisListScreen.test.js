@@ -4,19 +4,13 @@ import WhishListScreen from '../WhishListScreen';
 import { Provider } from 'react-redux';
 import { store } from '../../../Store';
 
-
-const render = component => rtlRender(
-  <Provider store={store}>
-    {component}
-  </Provider>
-)
+const render = component =>
+  rtlRender(<Provider store={store}>{component}</Provider>);
 
 describe('WhisListScreen', () => {
-
   it('should display text on screen', () => {
     render(<WhishListScreen />);
-    const element = screen.queryByText('Add movies to your wishlist')
-    expect(element).toBeTruthy();
+    const initalText = screen.queryByText('Add movies to your wishlist');
+    expect(initalText).toBeTruthy();
   });
-
 });

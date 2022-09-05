@@ -1,7 +1,7 @@
 import * as ActionType from '../Actions/actionTypes';
-import {call, put, takeEvery} from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import moviesApi from '../../Services/api';
-import {MoviesDetailsCallResponse} from '../../Types/MoviesDetailsTypes';
+import { MoviesDetailsCallResponse } from '../../Types/MoviesDetailsTypes';
 
 const axiosGetMovieDetail = async action => {
   const movieId = action.payload;
@@ -11,12 +11,12 @@ const axiosGetMovieDetail = async action => {
 
   const [movieDetailsResp, castPromiseResp] = await Promise.all([
     movieDetailsPromise,
-    castPromise,
+    castPromise
   ]);
 
   return {
     movieData: movieDetailsResp.data,
-    cast: castPromiseResp.data.cast,
+    cast: castPromiseResp.data.cast
   };
 };
 
@@ -24,14 +24,14 @@ export function* handleGetMovieDetail(action) {
   try {
     const payload: MoviesDetailsCallResponse = yield call(
       axiosGetMovieDetail,
-      action,
+      action
     );
 
-    yield put({type: ActionType.GET_MOVIE_DETAIL_SUCCESS, payload});
+    yield put({ type: ActionType.GET_MOVIE_DETAIL_SUCCESS, payload });
   } catch (e) {
     yield put({
       type: ActionType.GET_MOVIE_DETAIL_FAILURE,
-      payload: 'Movies cant be loaded.',
+      payload: 'Movies cant be loaded.'
     });
   }
 }

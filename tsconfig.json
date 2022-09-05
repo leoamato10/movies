@@ -7,5 +7,9 @@
     /* Completeness */
     "skipLibCheck": true   ,  
     "types": ["react-native", "jest",  "styled-components-react-native"],                            /* Skip type checking all .d.ts files. */
-  }
-}
+    "exclude": ["*.test.ts", "*.test.tsx"]
+  },
+    /* The line below suppress a typescript error in tests */
+    
+}  
+

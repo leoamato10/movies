@@ -1,74 +1,73 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Lottie from 'lottie-react-native';
 import { useAppDispatch, useAppSelector } from '../../Types/Redux';
-import { getMovies } from '../../Store/Actions/moviesActions'
+import { getMovies } from '../../Store/Actions/moviesActions';
 
 import styled, { useTheme } from 'styled-components/native';
 import { Container, Button, Title } from '../../Components/styled';
-import { Slider } from '../../Components'
+import { Slider } from '../../Components';
+import { Text } from 'react-native';
 
 const ScrollContainer = styled.ScrollView`
-padding-left:15px;
-margin-top:15px;
-`
-
+  padding-left: 15px;
+  margin-top: 15px;
+`;
 
 const HomeScreen = ({ navigation }) => {
+  const theme = useTheme();
+  const dispatch = useAppDispatch();
 
-  const theme = useTheme()
-  const dispatch = useAppDispatch()
-
-  const { fontSize } = theme
-  const { isLoading, movies } = useAppSelector(state => state)
-
+  const fontSize = theme?.fontSize;
+  const { isLoading, movies } = useAppSelector(state => state);
 
   useEffect(() => {
-    dispatch(getMovies())
-  }, [])
-
+    dispatch(getMovies());
+  }, []);
 
   if (isLoading) {
     return (
-      <Container centered >
-        <Lottie source={require('../../Assets/Animations/loading.json')} autoPlay loop style={{ width: 100 }} />
+      <Container centered>
+        <Lottie
+          source={require('../../Assets/Animations/loading.json')}
+          autoPlay
+          loop
+          style={{ width: 100 }}
+        />
       </Container>
-    )
+    );
   }
 
   return (
-    <SafeAreaView edges={['right', 'bottom', 'left']} >
+    <SafeAreaView edges={['right', 'bottom', 'left']}>
       <ScrollContainer showsVerticalScrollIndicator={false}>
-        {movies &&
+        {movies && (
           <Container>
             <Slider
-              movies={movies["topRated"]}
+              movies={movies['topRated']}
               filmCategory="Top Rated"
               hasRemoveButton={false}
             />
             <Slider
-              movies={movies["popular"]}
+              movies={movies['popular']}
               filmCategory="Popular"
               hasRemoveButton={false}
             />
             <Slider
-              movies={movies["upcoming"]}
+              movies={movies['upComing']}
               filmCategory="Upcoming"
               hasRemoveButton={false}
             />
           </Container>
-        }
-
+        )}
         <Button
           style={{ marginBottom: 15 }}
-          testID="navigation-button"
-          onPress={() => navigation.navigate("WhishListScreen")}>
-          <Title size={fontSize?.large} >View wishlist</Title>
+          onPress={() => navigation?.navigate('WhishListScreen')}>
+          <Title size={fontSize?.large}>View wishlist</Title>
         </Button>
-
-      </ScrollContainer >
+      </ScrollContainer>
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;
