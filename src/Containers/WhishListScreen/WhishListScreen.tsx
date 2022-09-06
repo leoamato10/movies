@@ -11,10 +11,6 @@ const WhishListScreen = () => {
   const dispatch = useAppDispatch();
   const { isLoading, wishlist } = useAppSelector(state => state);
 
-  useEffect(() => {
-    dispatch(getMovies());
-  }, []);
-
   if (!wishlist?.length || wishlist === undefined) {
     return (
       <Container centered>

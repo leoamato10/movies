@@ -4,12 +4,12 @@ import Lottie from 'lottie-react-native';
 import { useAppDispatch, useAppSelector } from '../../Types/Redux';
 import { getMovies } from '../../Store/Actions/moviesActions';
 
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParams } from '../../Navigators/RootNavigator';
+
 import styled, { useTheme } from 'styled-components/native';
 import { Container, Button, Title } from '../../Components/styled';
 import { Slider } from '../../Components';
-import { Text } from 'react-native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParams } from '../../Navigators/RootNavigator';
 
 const ScrollContainer = styled.ScrollView`
   padding-left: 15px;
