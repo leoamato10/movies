@@ -8,13 +8,17 @@ import styled, { useTheme } from 'styled-components/native';
 import { Container, Button, Title } from '../../Components/styled';
 import { Slider } from '../../Components';
 import { Text } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParams } from '../../Navigators/RootNavigator';
 
 const ScrollContainer = styled.ScrollView`
   padding-left: 15px;
   margin-top: 15px;
 `;
 
-const HomeScreen = ({ navigation }) => {
+type Props = NativeStackScreenProps<RootStackParams, 'HomeScreen'>;
+
+const HomeScreen = ({ navigation }: Props) => {
   const theme = useTheme();
   const dispatch = useAppDispatch();
 
